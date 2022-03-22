@@ -1,0 +1,23 @@
+.container {
+    width:1200px;
+    height: 600px;
+    background-color:rgba(100,100,100,0.5);
+    margin:0 auto;
+    display:flex;
+    flex-wrap: wrap;
+}
+.header {
+    display:flex;
+    justify-content: space-evenly;
+    margin:30px;
+    align-items: center;
+
+}
+#create {
+    height:50px;
+}
+.pixel {
+    border: solid black 1px;
+    height:50px;
+    width:50px;
+}
