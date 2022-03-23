@@ -11,8 +11,17 @@
     <div class="header">
         <button id="create">Click here to reset the grid</button>
         <div>
-            <label for="numberSquares">Desired number of pixels:</label>
-            <input type="text" id="numberSquares" name="numberSquares">
+            <p>Desired Grid Resololution:</p>
+
+            <label for="lowRes">Low Resolution</label>
+            <input type="radio" id="lowRes" name="Res">
+            <label for="medRes">Medium Resolution</label>
+            <input type="radio" id="medRes" name="Res">
+            <label for="highRes">High Resolution</label>
+            <input type="radio" id="highRes" name="Res">
+            <label for="ultraRes">Ultra Resolution</label>
+            <input type="radio" id="ultraRes" name="Res">
+
         </div>
     </div>
     <div class="container">
@@ -20,14 +29,32 @@
     </div>
 <script>
 const container = document.querySelector('.container');
-
- for (let i = 0; i < 50; i++) {
+let pxNum = 1
+/*Grid Creation with each pixel unique*/ 
+for (let i = 0; i < 72; i++) {
     const div = document.createElement('div');
     div.classList.add('pixel');
+    div.classList.add(pxNum); 
+    pxNum = pxNum + 1;
     container.appendChild(div);
 }
-
-
+/*paint function*/
+const pixel = document.querySelector('.pixel')
+function paint() {
+    pixel.classList.add("paint");
+    console.log('test');
+}
+/* applies an event listener to each indivdual pixel*/
+for (let i = 1; i<73; i++) {
+    let count = i.toString();
+    let position = document.getElementsByClassName(count);
+    position[0].addEventListener("click", paint);
+    pxNum.onclick = paint();
+}
+/* second version to iterate event lsiteners*/
+/*[...document.querySelectorAll('.pixel')].forEach(function(item) {
+    item.addEventListener("click", paint);
+});*/
 
 </script>
 </body>
